@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+
+  brake_ecu:
+
+    build: .
+
+    container_name: brake_ecu
+
+    network_mode: host
+
+    privileged: true
+
+    volumes:
+      - ./brake_ecu:/app
+
+    command: python brake_ecu.py
+
+  light_ecu:
+
+    build: .
+
+    container_name: light_ecu
+
+    network_mode: host
+
+    privileged: true
+
+    volumes:
+      - ./light_ecu:/app
+
+    command: python light_ecu.py
